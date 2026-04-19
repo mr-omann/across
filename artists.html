@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists | ACROSS Festival 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/novo/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/novo/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/novo/images/apple-touch-icon.png">
+    <style>
+        @font-face {
+            font-family: 'Rundeck';
+            src: url('/novo/Rundeck.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --lavender-light: #e1d0e1;
+            --lavender-artistic: #E5CCE1;
+            --lavender-ea: #EACCC1;
+            --lavender-dark: #c7bcc7;
+            --pine: #0a4701;
+            --gold: #e0ae71;
+            --burnt-orange: #d65f29;
+            --sacramento: #162114;
+            --chiffon: #FFEDD2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--chiffon);
+            color: var(--sacramento);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Rundeck', serif;
+        }
+
+        /* Nav */
+        header.top-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 12px 40px;
+            background-color: rgba(225, 208, 225, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+            border-bottom: 1px solid var(--lavender-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sacramento);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover { opacity: 0.6; }
+
+        .nav-center a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 1200;
+        }
+
+        .burger-menu span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--sacramento);
+            transition: 0.3s;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: var(--lavender-light);
+            z-index: 1150;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-nav-overlay.active { transform: translateY(0); }
+
+        .mobile-nav-overlay a {
+            font-family: 'Rundeck', serif;
+            font-size: 32px;
+            text-decoration: none;
+            color: var(--sacramento);
+        }
+
+        /* Page hero */
+        .page-hero {
+            background-color: var(--lavender-artistic);
+            padding: 100px 80px 80px;
+            border-bottom: 1px solid var(--lavender-dark);
+        }
+
+        .page-hero .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--pine);
+            text-decoration: none;
+            margin-bottom: 40px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .page-hero .back-link:hover { opacity: 1; }
+
+        .page-hero h1 {
+            font-size: 80px;
+            line-height: 0.9;
+            color: var(--sacramento);
+        }
+
+        /* Artist anchors for jump links */
+        .artist-anchor {
+            display: block;
+            position: relative;
+            top: -100px;
+            visibility: hidden;
+        }
+
+        /* Artist section */
+        .artist-section {
+            padding: 100px 80px;
+            border-bottom: 1px solid rgba(22, 33, 20, 0.08);
+        }
+
+        .artist-section:nth-child(even) {
+            background-color: var(--lavender-artistic);
+        }
+
+        .artist-layout {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .artist-photo {
+            position: sticky;
+            top: 100px;
+        }
+
+        .artist-photo img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artist-photo-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .artist-photo-links a {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--pine);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pine);
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+
+        .artist-bio h2 {
+            font-size: 56px;
+            line-height: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .artist-bio .artist-tagline {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--burnt-orange);
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .artist-bio p {
+            font-size: 17px;
+            line-height: 1.75;
+            margin-bottom: 24px;
+            color: rgba(22, 33, 20, 0.88);
+        }
+
+        .artist-bio p:last-child { margin-bottom: 0; }
+
+        /* Footer */
+        footer {
+            padding: 80px;
+            text-align: center;
+            background-color: var(--pine);
+            color: var(--chiffon);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header.top-nav { padding: 12px 20px; }
+            .nav-links, .nav-right .btn-free { display: none; }
+            .burger-menu { display: flex; }
+            .page-hero { padding: 60px 20px 50px; }
+            .page-hero h1 { font-size: 52px; }
+            .artist-section { padding: 60px 20px; }
+            .artist-layout { grid-template-columns: 1fr; gap: 40px; }
+            .artist-photo { position: static; }
+            .artist-photo img { aspect-ratio: 3/2; }
+            .artist-bio h2 { font-size: 40px; }
+            .artist-bio p { font-size: 16px; }
+            footer { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="nav-links">
+            <a href="/novo/#program">Program</a>
+            <a href="/novo/#artists">Artists</a>
+            <a href="/novo/#about">About</a>
+            <a href="/novo/#venue">Venue</a>
+        </div>
+        <div class="nav-center">
+            <a href="/novo/">
+                <span style="font-family: 'Rundeck', serif; font-size: 22px;">ACROSS Festival</span>
+                <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.6;">12 & 13 September 2026</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="https://billetto.dk/e/1894606" target="_blank" class="btn-free" style="background-color: var(--burnt-orange); border: 1px solid var(--burnt-orange); padding: 8px 16px; border-radius: 2px; text-decoration: none; color: var(--chiffon); font-size: 11px; text-transform: uppercase; font-weight: 600;">Buy Tickets</a>
+            <div class="burger-menu" id="burgerToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="/novo/#program">Program</a>
+        <a href="/novo/#artists">Artists</a>
+        <a href="/novo/#about">About</a>
+        <a href="/novo/#venue">Venue</a>
+    </div>
+
+    <div class="page-hero">
+        <a href="/novo/" class="back-link">← Back to Festival</a>
+        <h1>The<br>Artists</h1>
+    </div>
+
+    <main>
+
+        <!-- NOVO Quartet -->
+        <span class="artist-anchor" id="novo"></span>
+        <section class="artist-section">
+            <div class="artist-layout">
+                <div class="artist-photo">
+                    <img src="/novo/images/ARTISTS novo.jpg" alt="NOVO Quartet">
+                    <div class="artist-photo-links">
+                        <a href="https://www.novoquartet.com" target="_blank">www.novoquartet.com ↗</a>
+                    </div>
+                </div>
+                <div class="artist-bio">
+                    <h2>NOVO<br>Quartet</h2>
+                    <p>NOVO Quartet's journey began in 2018 with three childhood friends and a Polish violist — a look-alike to the second violinist. In the beginning, the young quartet couldn't even agree on a name, so the organizer of their first concert named them "NOVO" — because they were new. Seven years later, they still feel as at the beginning of their journey. Not due to lack of experience, but they are always exploring, keeping doors open, and letting curiosity lead the way.</p>
+                    <p>That curiosity has taken them far. With more than 100 concerts a year, they have performed in world-class venues like Wigmore Hall and Laeiszhalle. But they also seek contrasts — like playing at a boys' school in Kenya, discovering how music brings joy even where classical concerts are rare. Their outreach tours have taken them to Kenya, Greenland, Svalbard, and Colombia.</p>
+                    <p>NOVO Quartet's achievements include top prizes at the Geneva, Heidelberg, Carl Nielsen, and Trondheim competitions. Most recently, they were selected as BBC New Generation Artists 2025–27 – a major milestone that will strengthen their growing presence in the UK. Starting in autumn 2025, they also embark on a new chapter as Ensemble in Association at the Royal Northern College of Music in Manchester, supporting the next generation through performances, coaching sessions, and collaborative projects.</p>
+                    <p>In autumn 2025, NOVO Quartet released their debut album, "TRACK 1" with pieces by Carl Nielsen, Dmitri Shostakovich, and Matias Vestergård. The album is a musical snapshot of their first years together and has received outstanding praise, including 5 stars in Politiken and Editor's Choice in Gramophone Magazine.</p>
+                    <p>Beyond music, collaborations with brands like UNIQLO and Shaping New Tomorrow have helped them reach new audiences.</p>
+                    <p>But none of this matters without their bond. Over time, the quartet has become a small family, built on respect, care, and humor. This philosophy inspired them to create their own festival, ACROSS, where they invite established ensembles and celebrate the spirit of chamber music together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paddington Trio -->
+        <span class="artist-anchor" id="paddington"></span>
+        <section class="artist-section">
+            <div class="artist-layout">
+                <div class="artist-photo">
+                    <img src="/novo/images/ARTISTS paddington 2.webp" alt="Paddington Trio">
+                    <div class="artist-photo-links">
+                        <a href="https://www.paddingtontrio.com" target="_blank">www.paddingtontrio.com ↗</a>
+                    </div>
+                </div>
+                <div class="artist-bio">
+                    <h2>Paddington<br>Trio</h2>
+                    <p>Critically acclaimed as "three virtuosic musicians who play as one" and "live every note" (The Guardian), the Paddington Trio is one of its generation's leading ensembles, recognized for its fresh interpretations of the classical canon and energy in contemporary music. Much like the famous bear, Finnish violinist Tuulia Hero, Irish cellist Patrick Moriarty, and American pianist Stephanie Tang first came together at Paddington Station and made London their home.</p>
+                    <p>From the start they achieved a meteoric rise, emerging as First Prize recipients of the Royal Over-Seas League Competition and the Parkhouse Award at Wigmore Hall. These early successes led to important debuts at Wigmore Hall and Kings Place, earning high praise in The Strad Magazine and a 5-star review in The Guardian.</p>
+                    <p>Celebrated for their energetic communication, imaginative programming, and refined ensemble playing, they continue to captivate audiences in prominent halls and series worldwide. Their approach was described by BBC Radio 3's In Tune as "satisfyingly bananas". Their calendar includes appearances at major UK venues, European festivals, and North American stages, and broadcasts on YLE, Klara, RTÉ lyric fm, and BBC Radio 3.</p>
+                    <p>The Paddington Trio thrives on artistic collaboration, from orchestral and chamber music to interdisciplinary projects. Highlights include Beethoven's Triple Concerto in Finland and collaborations on Messiaen and Shostakovich with leading artists. In 2026, they performed alongside Tiler Peck and New York City Ballet at Sadler's Wells Theatre in London.</p>
+                    <p>They have received mentorship from artists including Alfred Brendel, Eberhard Feltz, Steven Isserlis, and members of the Ébène, Emerson, and Alban Berg Quartets. They hold residencies in Madrid and Paris and, since 2023, teach at the Royal Northern College of Music.</p>
+                    <p>Highlight engagements for 2026/27 include debuts at Amsterdam Concertgebouw, Alte Oper Frankfurt, and Lucerne. Their debut album, "Freakshow," will be released with PENTATONE in 2027.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simply Quartet -->
+        <span class="artist-anchor" id="simply"></span>
+        <section class="artist-section">
+            <div class="artist-layout">
+                <div class="artist-photo">
+                    <img src="/novo/images/ARTISTS simply.jpg" alt="Simply Quartet">
+                    <div class="artist-photo-links">
+                        <a href="https://www.simplyquartet.com" target="_blank">www.simplyquartet.com ↗</a>
+                    </div>
+                </div>
+                <div class="artist-bio">
+                    <h2>Simply<br>Quartet</h2>
+                    <p>"Atemberaubend präzis, scharf und schneidend intoniert da das Simply Quartet. […] Was für eine Wandlungsfähigkeit zeigt dieses Ensemble!" — SWR Kultur, on the quartet's debut album released in spring 2025 on Genuin and praised by the international press.</p>
+                    <p>Their stylistic range extends from works of the early Classical period to the latest compositions by living artists. In search of the greatest possible fidelity to the score, the four musicians immerse themselves in meticulous score study, approaching the text with deep curiosity.</p>
+                    <p>The quartet's current formation took shape during their studies at the University of Music and Performing Arts Vienna, where they worked closely with Johannes Meissl. The ensemble was originally founded in Shanghai, where Jensen Horn-Sin Lam supported the quartet from the beginning. Other mentors include Hatto Beyerle, Patrick Jüdt, Günter Pichler, and Gerhard Schulz.</p>
+                    <p>In January 2026, Sueye Park took over the position previously held by Danfeng Shen. The quartet has been awarded four first prizes at major competitions, including the Carl Nielsen International Chamber Music Competition and Quatuor à Bordeaux.</p>
+                    <p>In the 2021/22 season, the Simply Quartet was selected for the ECHO Rising Stars series, leading to debuts in Europe's major concert halls. They are now regular guests at venues such as Wigmore Hall, the Philharmonie Luxembourg, the Vienna Konzerthaus, the Elbphilharmonie, BOZAR Brussels, and the Concertgebouw Amsterdam, as well as festivals such as the Schubertiade Schwarzenberg.</p>
+                    <p>From the 2025/26 season, the Simply Quartet will share the concert cycle "string." at the Vienna Konzerthaus. Further engagements include Muziekgebouw Amsterdam, Salle Molière in Lyon, Amici della Musica in Florence, and the Mozarteum Salzburg.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div style="font-family: 'Rundeck', serif; font-size: 28px; margin-bottom: 20px; color: var(--gold);">ACROSS Festival</div>
+        <div style="font-size: 14px; opacity: 0.7;">Venue: LiteraturHaus · Møllegade 7 · 2200 Copenhagen</div>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+            <a href="https://www.instagram.com/across.festival/" target="_blank" style="color: inherit;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/across.chambermusic/" target="_blank" style="color: inherit;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+        <p style="font-size: 10px; margin-top: 30px; opacity: 0.4;">© 2026 ACROSS Festival. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        document.getElementById('burgerToggle').addEventListener('click', () => {
+            document.getElementById('mobileNav').classList.toggle('active');
+        });
+        document.querySelectorAll('.mobile-nav-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileNav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

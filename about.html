@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ACROSS Festival 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/novo/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/novo/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/novo/images/apple-touch-icon.png">
+    <style>
+        @font-face {
+            font-family: 'Rundeck';
+            src: url('/novo/Rundeck.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --lavender-light: #e1d0e1;
+            --lavender-artistic: #E5CCE1;
+            --lavender-ea: #EACCC1;
+            --lavender-dark: #c7bcc7;
+            --pine: #0a4701;
+            --gold: #e0ae71;
+            --burnt-orange: #d65f29;
+            --sacramento: #162114;
+            --chiffon: #FFEDD2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--chiffon);
+            color: var(--sacramento);
+        }
+
+        h1, h2, h3, h4 { font-family: 'Rundeck', serif; }
+
+        /* Nav */
+        header.top-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 12px 40px;
+            background-color: rgba(225, 208, 225, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+            border-bottom: 1px solid var(--lavender-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sacramento);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover { opacity: 0.6; }
+
+        .nav-center a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 1200;
+        }
+
+        .burger-menu span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--sacramento);
+            transition: 0.3s;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: var(--lavender-light);
+            z-index: 1150;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-nav-overlay.active { transform: translateY(0); }
+
+        .mobile-nav-overlay a {
+            font-family: 'Rundeck', serif;
+            font-size: 32px;
+            text-decoration: none;
+            color: var(--sacramento);
+        }
+
+        /* Page hero */
+        .page-hero {
+            background-image: url('/novo/images/MHXS7452.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            color: var(--chiffon);
+            padding: 140px 80px 100px;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.35) 60%, rgba(10,10,10,0.15) 100%);
+        }
+
+        .page-hero > * { position: relative; z-index: 1; }
+
+        .page-hero .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--chiffon);
+            text-decoration: none;
+            margin-bottom: 50px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .page-hero .back-link:hover { opacity: 1; }
+
+        .page-hero h1 {
+            font-size: 90px;
+            line-height: 0.88;
+            color: var(--chiffon);
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .page-hero .hero-tagline {
+            font-size: 20px;
+            line-height: 1.5;
+            color: var(--chiffon);
+            opacity: 0.8;
+            max-width: 540px;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            background-color: var(--burnt-orange);
+            color: var(--chiffon);
+            padding: 80px;
+        }
+
+        .pull-quote blockquote {
+            font-family: 'Rundeck', serif;
+            font-size: 40px;
+            line-height: 1.15;
+            max-width: 800px;
+        }
+
+        /* Body section */
+        .about-body {
+            padding: 100px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .about-body p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            color: rgba(22, 33, 20, 0.88);
+        }
+
+        .about-body p:last-child { margin-bottom: 0; }
+
+        .about-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card {
+            padding: 48px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-card h3 {
+            font-size: 26px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-card p {
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Facts strip */
+        .facts-strip {
+            background-color: var(--lavender-artistic);
+            padding: 80px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            border-top: 1px solid var(--lavender-dark);
+            border-bottom: 1px solid var(--lavender-dark);
+        }
+
+        .fact-item {
+            text-align: center;
+        }
+
+        .fact-number {
+            font-family: 'Rundeck', serif;
+            font-size: 64px;
+            line-height: 1;
+            color: var(--burnt-orange);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .fact-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+
+        /* CTA section */
+        .about-cta {
+            background-color: #FFEDD2;
+            color: var(--sacramento);
+            padding: 100px 80px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-cta h2 {
+            font-size: 52px;
+            line-height: 0.9;
+            color: var(--sacramento);
+            margin-bottom: 16px;
+        }
+
+        .about-cta p {
+            font-size: 16px;
+            opacity: 0.7;
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        .btn-cta-large {
+            display: inline-block;
+            background: var(--burnt-orange);
+            color: var(--chiffon);
+            padding: 20px 40px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px;
+            text-align: center;
+            background-color: var(--lavender-artistic);
+            color: var(--sacramento);
+            border-top: 1px solid var(--lavender-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header.top-nav { padding: 12px 20px; }
+            .nav-links, .nav-right .btn-free { display: none; }
+            .burger-menu { display: flex; }
+            .page-hero { padding: 60px 20px 50px; }
+            .page-hero h1 { font-size: 52px; }
+            .page-hero { min-height: 50vh; padding: 60px 20px 50px; }
+            .pull-quote { padding: 50px 20px; }
+            .pull-quote blockquote { font-size: 26px; }
+            .about-body { padding: 60px 20px; grid-template-columns: 1fr; gap: 50px; }
+            .about-sidebar { position: static; }
+            .facts-strip { padding: 50px 20px; grid-template-columns: repeat(2, 1fr); }
+            .fact-number { font-size: 48px; }
+            .about-cta { padding: 60px 20px; grid-template-columns: 1fr; gap: 30px; }
+            .about-cta h2 { font-size: 38px; }
+            footer { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="nav-links">
+            <a href="/novo/#program">Program</a>
+            <a href="/novo/#artists">Artists</a>
+            <a href="/novo/#about">About</a>
+            <a href="/novo/#venue">Venue</a>
+        </div>
+        <div class="nav-center">
+            <a href="/novo/">
+                <span style="font-family: 'Rundeck', serif; font-size: 22px;">ACROSS Festival</span>
+                <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.6;">12 & 13 September 2026</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="https://billetto.dk/e/1894606" target="_blank" class="btn-free" style="background-color: var(--burnt-orange); border: 1px solid var(--burnt-orange); padding: 8px 16px; border-radius: 2px; text-decoration: none; color: var(--chiffon); font-size: 11px; text-transform: uppercase; font-weight: 600;">Buy Tickets</a>
+            <div class="burger-menu" id="burgerToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="/novo/#program">Program</a>
+        <a href="/novo/#artists">Artists</a>
+        <a href="/novo/#about">About</a>
+        <a href="/novo/#venue">Venue</a>
+    </div>
+
+    <main>
+
+        <div class="page-hero">
+            <a href="/novo/" class="back-link">← Back to Festival</a>
+            <h1>A festival for<br>the curious</h1>
+            <p class="hero-tagline">"The bar is right there in the hall and stays open, so you can bring a drink to your seat, stay between concerts, and enjoy the evening at your own pace."</p>
+        </div>
+
+        <div class="about-body">
+            <div class="about-text">
+                <p>ACROSS Festival is a classical music festival for all curious listeners, whether you are new to classical music or already know it well.</p>
+                <p>The festival is set in the small and charming LiteraturHaus in Nørrebro — one of Copenhagen's most creative and vibrant neighbourhoods. The bar is right there in the hall and stays open, so you can bring a drink to your seat, stay between concerts, and enjoy the evening at your own pace.</p>
+                <p>We aim to create an informal and welcoming atmosphere, where you can experience the musicians up close. At the heart of the festival is the meeting between three of the most exciting young chamber music groups, sharing the stage and exploring what happens when their worlds come together.</p>
+                <p>The programme moves in different directions: well known pieces, music you might not have heard before — it's a bit of everything, really, and that's the point!</p>
+                <p>We gather in September, at the very end of summer — the perfect moment to enjoy the last warmth and light of the season. Across two days and four concerts, we invite you to come soak in the music and enjoy the moment in good company.</p>
+            </div>
+            <div class="about-sidebar">
+                <div class="sidebar-card" style="background-color: var(--lavender-artistic);">
+                    <h3>The Venue</h3>
+                    <p style="margin-bottom: 12px;">LiteraturHaus sits in the heart of Nørrebro, one of Copenhagen's most culturally rich neighbourhoods. The intimate hall brings audiences and musicians within metres of each other — no opera house formality, just music and people.</p>
+                    <p style="font-size: 13px; opacity: 0.6;">Møllegade 7 · 2200 København N</p>
+                </div>
+                <div class="sidebar-card" style="background-color: var(--burnt-orange); color: var(--chiffon);">
+                    <h3>The 2026 Edition</h3>
+                    <p style="opacity: 0.9;">Three ensembles. Four concerts. Two days. NOVO Quartet, Paddington Trio, and Simply Quartet come together at the end of summer to explore what chamber music can be when curious minds meet.</p>
+                    <a href="/novo/artists.html" style="display: inline-block; margin-top: 20px; color: var(--chiffon); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--chiffon); padding-bottom: 2px;">Meet the Artists →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="facts-strip">
+            <div class="fact-item">
+                <span class="fact-number">4</span>
+                <span class="fact-label">Concerts</span>
+            </div>
+            <div class="fact-item">
+                <span class="fact-number">3</span>
+                <span class="fact-label">Ensembles</span>
+            </div>
+            <div class="fact-item">
+                <span class="fact-number">2</span>
+                <span class="fact-label">Days</span>
+            </div>
+            <div class="fact-item">
+                <span class="fact-number">1</span>
+                <span class="fact-label">Venue</span>
+            </div>
+        </div>
+
+        <div class="about-cta">
+            <div>
+                <h2>Join us in<br>September</h2>
+                <p>September 12 & 13, 2026 at LiteraturHaus, Nørrebro. Single concert tickets available, or save 20% with a full festival pass covering all four concerts.</p>
+            </div>
+            <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-cta-large">Buy Tickets</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div style="font-family: 'Rundeck', serif; font-size: 28px; margin-bottom: 20px; color: var(--sacramento);">ACROSS Festival</div>
+        <div style="font-size: 14px; color: var(--sacramento); opacity: 0.6;">Venue: LiteraturHaus · Møllegade 7 · 2200 Copenhagen</div>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+            <a href="https://www.instagram.com/across.festival/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/across.chambermusic/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+        <p style="font-size: 10px; margin-top: 30px; color: var(--sacramento); opacity: 0.4;">© 2026 ACROSS Festival. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        document.getElementById('burgerToggle').addEventListener('click', () => {
+            document.getElementById('mobileNav').classList.toggle('active');
+        });
+        document.querySelectorAll('.mobile-nav-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileNav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

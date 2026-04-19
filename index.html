@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACROSS Festival | Edition 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/novo/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/novo/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/novo/images/apple-touch-icon.png">
+    <style>
+        @font-face {
+            font-family: 'Rundeck';
+            src: url('/novo/Rundeck.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --lavender-light: #e1d0e1;
+            --lavender-artistic: #E5CCE1;
+            --lavender-ea: #EACCC1;
+            --lavender-dark: #c7bcc7;
+            --pine: #0a4701;
+            --gold: #e0ae71;
+            --burnt-orange: #d65f29;
+            --sacramento: #162114;
+            --chiffon: #FFEDD2;
+            --sand: var(--lavender-artistic);
+            --charcoal: var(--sacramento);
+            --text-subtle: rgba(22, 33, 20, 0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--chiffon);
+        }
+
+        h1, h2, h3, h4, .hero h1, .section-header h2, .overlay-center h2, .gallery-text h4, .about-highlight h3, .artist-card h3 {
+            font-family: 'Rundeck', serif;
+        }
+
+        /* Header / Nav */
+        header.top-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 12px 40px;
+            background-color: rgba(225, 208, 225, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 80px);
+            max-width: 1160px;
+            z-index: 1100;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--sacramento);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 1200;
+        }
+
+        .burger-menu span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--sacramento);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+            transform-origin: center;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--lavender-light);
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding-top: 80px;
+            transform: translateY(-100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-nav-overlay.active {
+            transform: translateY(0);
+        }
+
+        .mobile-nav-overlay a {
+            font-family: 'Rundeck', serif;
+            font-size: 32px;
+            text-decoration: none;
+            color: var(--sacramento);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: #0a0a0a;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                105deg,
+                rgba(10, 10, 10, 0.78) 0%,
+                rgba(10, 10, 10, 0.55) 55%,
+                rgba(10, 10, 10, 0.2) 100%
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            max-width: 680px;
+        }
+
+        .hero h1 {
+            font-size: 100px;
+            font-weight: 400;
+            line-height: 0.85;
+            color: var(--chiffon);
+            margin-bottom: 30px;
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            max-width: 450px;
+            line-height: 1.4;
+            color: var(--chiffon);
+            margin-bottom: 20px;
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 120px 80px;
+        }
+
+        /* Artists */
+        .artists-section {
+            background-color: var(--lavender-ea);
+            padding-bottom: 40px;
+        }
+
+        .artists-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .artists-deco-wrap {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            min-height: 160px;
+            align-self: stretch;
+        }
+
+        .artists-deco-img {
+            position: absolute;
+            /* After rotate(90deg), original width→visible height, original height→visible width.
+               Use 100vw/100vh so the rotated image always covers the container regardless of aspect ratio. */
+            width: 100vh;
+            height: 100vw;
+            max-width: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(90deg);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .artist-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .artists-deco-wrap { display: none; }
+        }
+
+        .artist-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .artist-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .artist-card img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .artist-guest {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(22, 33, 20, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .artist-guest-photo {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            background-color: rgba(22, 33, 20, 0.1);
+        }
+
+        .artist-guest-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .artist-guest-name {
+            font-family: 'Rundeck', serif;
+            font-size: 20px;
+            color: var(--sacramento);
+        }
+
+        .artist-guest-instrument {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--burnt-orange);
+        }
+
+        .artist-guest-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 0.65;
+            margin-top: 4px;
+        }
+
+        /* Program */
+        .program-banner {
+            padding: 40px 0 100px;
+            background-color: var(--lavender-ea);
+            text-align: center;
+        }
+
+        .program-banner img {
+            width: 60%;
+            max-width: 800px;
+        }
+
+        .section-header {
+            background-color: #E4DAC3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 80px;
+            line-height: 0.9;
+            flex-shrink: 0;
+        }
+
+        .festival-pass-prompt {
+            background: var(--burnt-orange);
+            color: var(--chiffon);
+            padding: 36px 40px;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .festival-pass-prompt h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .festival-pass-prompt .pass-prices {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(214, 95, 41, 0.55);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(214, 95, 41, 0);
+                transform: scale(1.04);
+            }
+        }
+
+        @keyframes pulse-glow-dark {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(214, 95, 41, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 0 9px rgba(214, 95, 41, 0);
+            }
+        }
+
+        .btn-pass {
+            background: var(--chiffon);
+            color: var(--burnt-orange);
+            padding: 16px 28px;
+            border-radius: 2px;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            animation: pulse-glow 2.2s ease-in-out infinite;
+        }
+
+        .btn-nav-cta {
+            animation: pulse-glow-dark 2.2s ease-in-out infinite;
+        }
+
+        @media (max-width: 680px) {
+            .festival-pass-prompt {
+                grid-template-columns: 1fr;
+            }
+            .btn-pass {
+                text-align: center;
+            }
+        }
+
+        .program-list {
+            padding: 0;
+            background-color: var(--sand);
+        }
+
+        .program-row {
+            display: grid;
+            grid-template-columns: 200px 1fr 200px 150px;
+            padding: 60px 80px;
+            border-bottom: 1px solid rgba(22, 33, 20, 0.1);
+            align-items: start;
+            text-decoration: none;
+            color: var(--sacramento);
+        }
+
+        .program-row.concert-didnt-come { background-color: #E4DAC3; }
+        .program-row.concert-night { background-color: #EACCC1; }
+        .program-row.concert-cross { background-color: #E4DAC3; }
+        .program-row.concert-finale { background-color: #EACCC1; }
+
+        .program-full {
+            margin-top: 20px;
+        }
+
+        .program-full ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .program-full ul li {
+            font-size: 15px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(22, 33, 20, 0.08);
+            color: rgba(22, 33, 20, 0.85);
+        }
+
+        .program-full ul li:last-child {
+            border-bottom: none;
+        }
+
+        .btn-ticket-trigger {
+            background: var(--sacramento);
+            color: var(--chiffon);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Moments */
+        .moments-section {
+            background-color: var(--sand);
+            padding: 80px 0;
+        }
+
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 0 80px;
+        }
+
+        .moments-grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        /* Venue Section */
+        .venue-section {
+            padding: 0;
+            background-color: var(--sacramento);
+            color: var(--chiffon);
+        }
+
+        .venue-row-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 450px;
+        }
+
+        .venue-text {
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .venue-text h2 {
+            font-size: 48px;
+            color: var(--gold);
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .venue-image-col {
+            width: 100%;
+            height: 100%;
+        }
+
+        .venue-image-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .map-row {
+            width: 100%;
+            height: 500px;
+        }
+
+        .map-row iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(1) invert(1) contrast(1.2);
+            opacity: 0.8;
+        }
+
+        /* Sponsors */
+        .sponsors-section {
+            background-color: var(--chiffon);
+            padding: 100px 80px;
+            overflow: hidden;
+        }
+
+        .sponsors-carousel-wrapper {
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        .sponsors-carousel {
+            display: flex;
+            gap: 80px;
+            animation: scroll-sponsors 40s linear infinite;
+            width: max-content;
+            align-items: center;
+        }
+
+        .sponsors-carousel:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-sponsors {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .sponsor-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .sponsor-logo {
+            height: 68px;
+            width: auto;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .sponsor-container img {
+            mix-blend-mode: multiply;
+            opacity: 0.85;
+        }
+
+        .sponsor-container img[alt="Lemvigh-Müller Fonden"] {
+            height: 95px;
+        }
+
+        .sponsor-name-tooltip {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--sacramento);
+            color: var(--chiffon);
+            padding: 4px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: 0.3s;
+            white-space: nowrap;
+            margin-top: 10px;
+            pointer-events: none;
+        }
+
+        .sponsor-container:hover .sponsor-name-tooltip {
+            opacity: 1;
+        }
+
+        .sponsors-text-list {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--sacramento);
+            opacity: 0.5;
+            line-height: 2;
+        }
+
+        /* Previous Editions */
+        .photo-box-section {
+            padding: 0;
+            background-color: var(--lavender-light);
+        }
+
+        .photo-box-section h2 {
+            padding: 120px 80px 60px;
+            font-size: 48px;
+            text-align: left;
+        }
+
+        .photo-box-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(22,33,20,0.8), transparent);
+            color: var(--chiffon);
+            padding: 40px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .photo-item:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px;
+            text-align: center;
+            background-color: var(--lavender-light);
+            color: var(--sacramento);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header.top-nav { padding: 12px 20px; grid-template-columns: auto 1fr auto; top: 10px; width: calc(100% - 32px); }
+            .nav-links, .nav-right .btn-free { display: none; }
+            .nav-right { justify-content: flex-end; }
+            .burger-menu { display: flex; }
+            section { padding: 80px 20px; }
+            .hero-content { padding: 40px 20px; max-width: 100%; }
+            .hero h1 { font-size: 60px; }
+            .artist-grid { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; text-align: center; }
+            .section-header h2 { font-size: 56px; }
+            .festival-pass-prompt { flex-direction: column; align-items: flex-start; padding: 30px; width: 100%; }
+            .festival-pass-prompt .btn-pass { width: 100%; text-align: center; }
+            .program-row { grid-template-columns: 1fr; padding: 40px 20px; text-align: center; }
+            .venue-row-info { grid-template-columns: 1fr; }
+            .venue-text { padding: 40px 20px; }
+            .venue-image-col { height: 300px; }
+            .photo-box-grid { grid-template-columns: 1fr; }
+            .about-section > div { grid-template-columns: 1fr !important; gap: 30px !important; }
+        }
+
+        /* Floating CTA */
+        .floating-pass-cta {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(150px);
+            background: var(--burnt-orange);
+            color: var(--chiffon);
+            padding: 12px 30px;
+            border-radius: 100px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .floating-pass-cta.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            /* Tighten all section headings */
+            .artists-section h2 { font-size: 40px !important; }
+            .section-header h2 { font-size: 36px !important; }
+            .about-section h2 { font-size: 36px !important; }
+            .photo-box-section h2 { font-size: 30px; padding: 50px 20px 30px; }
+            .venue-text h2 { font-size: 28px; }
+
+            /* About section: stack to single column */
+            .about-section > div {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+
+            /* Festival Moments: header */
+            .moments-section { padding: 50px 0; }
+            .moments-section > div:first-child { padding: 0 20px !important; margin-bottom: 24px !important; }
+            .moments-section h2 { font-size: 34px !important; }
+
+            /* Festival Moments: 2×3 grid, hide extra images */
+            .moments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+                padding: 0 16px;
+            }
+            .moments-grid img:nth-child(n+7) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="nav-links">
+            <a href="#program">Program &amp; Tickets</a>
+            <a href="#artists">Artists</a>
+            <a href="#about">About</a>
+            <a href="#venue">Venue</a>
+        </div>
+        <div class="nav-center">
+            <a href="#">
+                <span style="font-family: 'Rundeck', serif; font-size: 22px;">ACROSS Festival</span>
+                <span style="font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.6;">12 & 13 September 2026</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <a href="https://billetto.dk/e/1894606" target="_blank" class="btn-free btn-nav-cta" style="background-color: var(--burnt-orange); border: 1px solid var(--burnt-orange); padding: 8px 16px; border-radius: 2px; text-decoration: none; color: var(--chiffon); font-size: 11px; text-transform: uppercase; font-weight: 600;">Buy Tickets</a>
+            <div class="burger-menu" id="burgerToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobileNav">
+        <a href="#program">Program &amp; Tickets</a>
+        <a href="#artists">Artists</a>
+        <a href="#about">About</a>
+        <a href="#venue">Venue</a>
+    </div>
+
+    <a href="https://billetto.dk/users/across-festival" target="_blank" class="floating-pass-cta" id="floatingPass">
+        <span>Buy Tickets</span>
+    </a>
+
+    <main>
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="/novo/videos/hero.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700; margin-bottom: 15px;">Edition 2026 — Copenhagen</div>
+                <h1>ACROSS<br>Festival</h1>
+                <div class="hero-desc">September 12 & 13 @ LiteraturHaus / Nørrebro, Copenhagen</div>
+                <div class="hero-desc" style="font-size: 16px; opacity: 0.7;">A classical music festival for all curious listeners, whether you are new to classical music or already know it well.</div>
+                <div style="display: flex; gap: 20px; align-items: center; margin-top: 20px;">
+                    <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-pass">Buy Tickets</a>
+                    <a href="#program" style="text-decoration: none; color: var(--chiffon); font-size: 12px; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid var(--chiffon);">Explore Program</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="artists-section" id="artists">
+            <div class="artists-header">
+                <h2 style="font-size: 80px; line-height: 0.9;">The<br>Artists</h2>
+            </div>
+            <div class="artist-grid">
+                <div class="artist-card">
+                    <img src="/novo/images/ARTISTS novo.jpg" alt="NOVO Quartet">
+                    <h3>NOVO Quartet</h3>
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Founded in 2018, NOVO Quartet plays 100+ concerts a year across world-class venues and remote outreach destinations alike. BBC New Generation Artists 2025–27, winners at Geneva, Heidelberg, Carl Nielsen & Trondheim — their debut album earned 5 stars in Politiken and Editor's Choice in Gramophone.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <a href="/novo/artists.html#novo" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Full Bio →</a>
+                        <a href="https://www.novoquartet.com" target="_blank" style="color: var(--pine); text-decoration: none; font-size: 11px; opacity: 0.6;">www.novoquartet.com</a>
+                    </div>
+                </div>
+                <div class="artist-card">
+                    <img src="/novo/images/ARTISTS paddington 2.webp" alt="Paddington Trio">
+                    <h3>Paddington Trio</h3>
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Critically acclaimed as "three virtuosic musicians who play as one" (The Guardian), Tuulia Hero, Patrick Moriarty, and Stephanie Tang met at London's Paddington Station. First Prize at the Royal Over-Seas League Competition and Parkhouse Award. Their debut album 'Freakshow' arrives on PENTATONE in 2027.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <a href="/novo/artists.html#paddington" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Full Bio →</a>
+                        <a href="https://www.paddingtontrio.com" target="_blank" style="color: var(--pine); text-decoration: none; font-size: 11px; opacity: 0.6;">www.paddingtontrio.com</a>
+                    </div>
+                </div>
+                <div class="artist-card">
+                    <img src="/novo/images/ARTISTS simply.jpg" alt="Simply Quartet">
+                    <h3>Simply Quartet</h3>
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Four first prizes at major competitions including Carl Nielsen and Quatuor à Bordeaux. ECHO Rising Stars alumni, Simply Quartet are regulars at Wigmore Hall, the Elbphilharmonie, and Concertgebouw Amsterdam. Their debut album on Genuin (2025) was hailed as "breathtakingly precise" by SWR Kultur.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                        <a href="/novo/artists.html#simply" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Full Bio →</a>
+                        <a href="https://www.simplyquartet.com" target="_blank" style="color: var(--pine); text-decoration: none; font-size: 11px; opacity: 0.6;">www.simplyquartet.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="artist-guest">
+                <img class="artist-guest-photo" src="" alt="Guest trumpet artist">
+                <div class="artist-guest-info">
+                    <span class="artist-guest-name">[Trumpet Artist Name]</span>
+                    <span class="artist-guest-instrument">Trumpet</span>
+                    <span class="artist-guest-desc">Joins NOVO Quartet to perform Jörg Widmann's <em>180 Beats per Minute</em> for trumpet and string quartet — Saturday, Sep 12 at 21:30.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="program-banner">
+            <img src="/novo/images/PROGRAM 2026 cropped.jpg" alt="Program">
+        </section>
+
+        <section class="section-header" id="program">
+            <h2>Program<br>and Tickets</h2>
+            <div class="festival-pass-prompt">
+                <div>
+                    <h3>Full Festival Pass — All 4 Concerts</h3>
+                    <p class="pass-prices">400 DKK &nbsp;·&nbsp; 200 DKK Student / U30</p>
+                </div>
+                <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-pass">Buy Tickets</a>
+            </div>
+        </section>
+
+        <section class="program-list">
+            <div class="program-row concert-night">
+                <div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Saturday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 12, 2026</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">19:00</div>
+                </div>
+                <div>
+                    <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">Didn't come ACROSS</div>
+                    <p style="font-size: 16px; font-weight: 500;">Once-rejected masterpieces that have become cornerstones of the repertoire</p>
+                    <div class="program-full">
+                        <ul>
+                            <li>Priaulx Rainier: Quartet for Strings</li>
+                            <li>L. v. Beethoven: Piano Trio in C minor, Op. 1 No. 3</li>
+                            <li style="text-align:center; opacity:0.4; border-bottom:none; padding:12px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.2em; font-weight:600;">Intermission</li>
+                            <li>Nancy Dalberg: String Quartet No. 1, 3rd movement</li>
+                            <li>C. Debussy: String Quartet</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <a href="https://billetto.dk/e/1894570" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student · 65 DKK<br>K7 · 40 DKK</div>
+                    </div>
+                </div>
+            </div>
+            <div class="program-row concert-didnt-come">
+                <div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Saturday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 12, 2026</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">21:30</div>
+                </div>
+                <div>
+                    <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">ACROSS the Night</div>
+                    <p style="font-size: 16px; font-weight: 500;">A hypnotic late-night program shaped by calm, repetition, and immersive light.</p>
+                    <div class="program-full">
+                        <ul>
+                            <li>C. Debussy: Clair de Lune</li>
+                            <li>K. Szymanowski: from Three Myths, "The Fountains of Arethusa"</li>
+                            <li>Charles Ives: Piano Trio, 2nd movement</li>
+                            <li>Caroline Shaw: Entr'acte</li>
+                            <li>D. Shostakovich: Piano Quintet, 4th movement (Intermezzo)</li>
+                            <li>Jörg Widmann: 180 Beats per Minute</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <a href="https://billetto.dk/e/1894571" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student · 65 DKK<br>K7 · 40 DKK</div>
+                    </div>
+                </div>
+            </div>
+            <div class="program-row concert-finale">
+                <div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Sunday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 13, 2026</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">14:00</div>
+                </div>
+                <div>
+                    <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">A CROSS over</div>
+                    <p style="font-size: 16px; font-weight: 500;">An energetic fusion of jazz and classical music.</p>
+                    <div class="program-full">
+                        <ul>
+                            <li>Anders Malta solo + jazz colleagues</li>
+                            <li>Anders Malta: "Affaldssortering / Waste Sorting" for string quartet (excerpts)</li>
+                            <li>Sam Perkin: Freak Show for piano trio</li>
+                            <li>Paul Schoenfield: Café Music</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <a href="https://billetto.dk/e/1894604" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student · 65 DKK<br>K7 · 40 DKK</div>
+                    </div>
+                </div>
+            </div>
+            <div class="program-row concert-cross">
+                <div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Sunday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 13, 2026</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">17:00</div>
+                </div>
+                <div>
+                    <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">Across across across…</div>
+                    <p style="font-size: 16px; font-weight: 500;">A vibrant finale — the festival's melting pot!</p>
+                    <div class="program-full">
+                        <ul>
+                            <li>J. Pachelbel: Canon</li>
+                            <li>R. Schumann: Piano Quartet</li>
+                            <li style="text-align:center; opacity:0.4; border-bottom:none; padding:12px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.2em; font-weight:600;">Intermission</li>
+                            <li>G. Enescu: String Octet</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
+                <div style="display: flex; justify-content: flex-end;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                        <a href="https://billetto.dk/e/1894605" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student · 65 DKK<br>K7 · 40 DKK</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; align-items: start;">
+                <div>
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; color: var(--burnt-orange); margin-bottom: 16px;">About the Festival</div>
+                    <h2 style="font-size: 56px; line-height: 0.9; margin-bottom: 30px;">A festival for<br>all curious<br>listeners</h2>
+                    <p style="font-size: 18px; line-height: 1.7; margin-bottom: 36px; opacity: 0.85;">A classical music festival set in the charming LiteraturHaus in Nørrebro. The bar stays open, the atmosphere is informal, and the musicians are right there in front of you — whether you're new to classical music or have loved it for years.</p>
+                    <a href="/novo/about.html" style="display: inline-block; color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid var(--pine); padding-bottom: 3px;">Read the full story →</a>
+                </div>
+                <div>
+                    <div style="background-color: var(--pine); color: var(--chiffon); padding: 50px; border-radius: 4px;">
+                        <h3 style="font-size: 28px; margin-bottom: 16px;">The 2026 Edition</h3>
+                        <p style="font-size: 14px; line-height: 1.7; opacity: 0.85;">A meeting between NOVO Quartet, Paddington Trio, and Simply Quartet — three of Europe's most exciting young ensembles sharing the stage across four concerts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="moments-section">
+            <div style="padding: 0 80px; margin-bottom: 40px;">
+                <h2 style="font-size: 64px;">Festival<br>Moments</h2>
+            </div>
+            <div class="moments-grid">
+                <img src="/novo/images/MXH20591.jpg" alt="Vibe">
+                <img src="/novo/images/MXH20827.jpg" alt="Vibe">
+                <img src="/novo/images/MXH21078.jpg" alt="Vibe">
+                <img src="/novo/images/MXH29945.jpg" alt="Vibe">
+                <img src="/novo/images/MXH29818.jpg" alt="Vibe">
+                <img src="/novo/images/MHXS3133.jpg" alt="Concert">
+                <img src="/novo/images/MHXS4286.jpg" alt="Concert">
+                <img src="/novo/images/MHXS5969.jpg" alt="Concert">
+                <img src="/novo/images/MHXS5266.jpg" alt="Festival">
+                <img src="/novo/images/MHXS6049.jpg" alt="Festival">
+                <img src="/novo/images/MHXS6680.jpg" alt="Festival">
+                <img src="/novo/images/MHXS7452.jpg" alt="Festival">
+                <img src="/novo/images/MHXS7655.jpg" alt="Festival">
+                <img src="/novo/images/MHXS6271.jpg" alt="Festival">
+                <img src="/novo/images/MHXS4086.jpg" alt="Festival">
+                <img src="/novo/images/MXH29701.jpg" alt="Festival">
+            </div>
+        </section>
+
+        <section class="venue-section" id="venue">
+            <div class="venue-row-info">
+                <div class="venue-text">
+                    <div class="collection-label" style="opacity: 0.5; margin-bottom: 10px;">Venue</div>
+                    <h2>LiteraturHaus<br>Copenhagen</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+                        <div>
+                            <h4 style="font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.5; color: var(--gold);">Address</h4>
+                            <p style="font-size: 16px; line-height: 1.4;">Møllegade 7<br>2200 København N</p>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.5; color: var(--gold);">Contact</h4>
+                            <a href="mailto:hello@acrossfestival.com" style="color: var(--chiffon); text-decoration: none; font-size: 16px;">hello@acrossfestival.com</a>
+                            <div style="display: flex; gap: 15px; margin-top: 15px;">
+                                <a href="https://www.instagram.com/across.festival/" target="_blank" style="color: inherit;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                                <a href="https://www.facebook.com/across.chambermusic/" target="_blank" style="color: inherit;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="venue-image-col">
+                    <img src="/novo/images/literaturhaus-cropped.jpg" alt="LiteraturHaus">
+                </div>
+            </div>
+            <div class="map-row">
+                <iframe src="https://maps.google.com/maps?q=M%C3%B8llegade+7,+2200+K%C3%B8benhavn&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+        </section>
+
+        <section class="sponsors-section" id="sponsors">
+            <div style="text-align: center; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--sacramento); opacity: 0.5; margin-bottom: 50px;">Supported by</div>
+            <div class="sponsors-carousel-wrapper">
+                <div class="sponsors-carousel">
+                    <!-- Duplicated for loop -->
+                    <div class="sponsor-container"><img src="/novo/images/LOGO solistforeningen.png" alt="Solistforeningen" class="sponsor-logo"><span class="sponsor-name-tooltip">Solistforeningen</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO augustinus.png" alt="Augustinus Fonden" class="sponsor-logo"><span class="sponsor-name-tooltip">Augustinus Fonden</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO statens kunstfond.png" alt="Statens Kunstfond" class="sponsor-logo"><span class="sponsor-name-tooltip">Statens Kunstfond</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO wilhelm hansen.png" alt="Wilhelm Hansen Fonden" class="sponsor-logo"><span class="sponsor-name-tooltip">Wilhelm Hansen Fonden</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO lm fonden.png" alt="Lemvigh-Müller Fonden" class="sponsor-logo"><span class="sponsor-name-tooltip">Lemvigh-Müller Fonden</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO knud højgaards.png" alt="Knud Højgaards Fond" class="sponsor-logo"><span class="sponsor-name-tooltip">Knud Højgaards Fond</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO dmf.png" alt="DMF" class="sponsor-logo"><span class="sponsor-name-tooltip">DMF</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO scs.png" alt="SCS" class="sponsor-logo"><span class="sponsor-name-tooltip">SCS</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO drp2.svg" alt="DR P2" class="sponsor-logo"><span class="sponsor-name-tooltip">DR P2</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO k7.webp" alt="K7" class="sponsor-logo"><span class="sponsor-name-tooltip">K7</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO lithaus.png" alt="LiteraturHaus" class="sponsor-logo"><span class="sponsor-name-tooltip">LiteraturHaus</span></div>
+                    <!-- Duplicate -->
+                    <div class="sponsor-container"><img src="/novo/images/LOGO solistforeningen.png" alt="Solistforeningen" class="sponsor-logo"><span class="sponsor-name-tooltip">Solistforeningen</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO augustinus.png" alt="Augustinus Fonden" class="sponsor-logo"><span class="sponsor-name-tooltip">Augustinus Fonden</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO statens kunstfond.png" alt="Statens Kunstfond" class="sponsor-logo"><span class="sponsor-name-tooltip">Statens Kunstfond</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO wilhelm hansen.png" alt="Wilhelm Hansen Fonden" class="sponsor-logo"><span class="sponsor-name-tooltip">Wilhelm Hansen Fonden</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO lm fonden.png" alt="Lemvigh-Müller Fonden" class="sponsor-logo"><span class="sponsor-name-tooltip">Lemvigh-Müller Fonden</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO knud højgaards.png" alt="Knud Højgaards Fond" class="sponsor-logo"><span class="sponsor-name-tooltip">Knud Højgaards Fond</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO dmf.png" alt="DMF" class="sponsor-logo"><span class="sponsor-name-tooltip">DMF</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO scs.png" alt="SCS" class="sponsor-logo"><span class="sponsor-name-tooltip">SCS</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO drp2.svg" alt="DR P2" class="sponsor-logo"><span class="sponsor-name-tooltip">DR P2</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO k7.webp" alt="K7" class="sponsor-logo"><span class="sponsor-name-tooltip">K7</span></div>
+                    <div class="sponsor-container"><img src="/novo/images/LOGO lithaus.png" alt="LiteraturHaus" class="sponsor-logo"><span class="sponsor-name-tooltip">LiteraturHaus</span></div>
+                </div>
+            </div>
+            <div class="sponsors-text-list">
+                Solistforeningen | Augustinus Fonden | Statens Kunstfond | Wilhelm Hansen Fonden<br>
+                Lemvigh-Müller Fonden | Knud Højgaards Fond | DMF | SCS | DR P2 | K7 | LiteraturHaus
+            </div>
+        </section>
+
+        <section class="photo-box-section">
+            <h2>Previous Editions</h2>
+            <div class="photo-box-grid">
+                <div class="photo-item">
+                    <img src="/novo/images/066_MXH24382.jpg" alt="Season 1">
+                    <div class="photo-overlay">Season 1 — 2024</div>
+                </div>
+                <div class="photo-item">
+                    <img src="/novo/images/MHXS5122.jpg" alt="Season 2">
+                    <div class="photo-overlay">Season 2 — 2025</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div style="font-family: 'Rundeck', serif; font-size: 28px; margin-bottom: 20px; color: var(--sacramento);">ACROSS Festival</div>
+        <div style="font-size: 14px; color: var(--sacramento); opacity: 0.6;">Venue: LiteraturHaus · Møllegade 7 · 2200 Copenhagen</div>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+            <a href="https://www.instagram.com/across.festival/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="https://www.facebook.com/across.chambermusic/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+        <p style="font-size: 10px; margin-top: 30px; color: var(--sacramento); opacity: 0.4;">© 2026 ACROSS FESTIVAL. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        const burgerToggle = document.getElementById('burgerToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        burgerToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            burgerToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.mobile-nav-overlay a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                burgerToggle.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const floatingPass = document.getElementById('floatingPass');
+            if (window.scrollY > 500) {
+                floatingPass.classList.add('show');
+            } else {
+                floatingPass.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

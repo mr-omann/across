@@ -20,5 +20,7 @@ Pure static HTML — no build step, no framework. Files are served directly from
 ## History
 Previously lived as a sub-folder (`/novo/`) of the `omann.org` repo. Extracted into its own repo in April 2026 when the site went live on its own domain. The `omann.org` site (otto@omann.org) is a separate Astro project.
 
+The header font was originally the browser default serif before being replaced with the custom Rundeck typeface (`Rundeck.otf/.ttf`).
+
 ## To make changes
 Edit files locally, commit, push to `main` — Cloudflare Pages deploys automatically within ~60 seconds.

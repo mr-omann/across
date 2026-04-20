@@ -1,8 +1,0 @@
-.git
-.gitattributes
-.wrangler
-.claude
-wrangler.toml
-project.md
-node_modules
-*.toml

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACROSS Festival | Udgave 2026</title>
+    <title>ACROSS Festival | Edition 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -726,25 +726,6 @@
             .about-section > div { grid-template-columns: 1fr !important; gap: 30px !important; }
         }
 
-        /* Language selector */
-        .lang-selector {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-        }
-        .lang-link {
-            text-decoration: none;
-            color: var(--sacramento);
-            opacity: 0.35;
-            transition: opacity 0.2s;
-        }
-        .lang-link:hover { opacity: 0.7; }
-        .lang-link.lang-active { opacity: 1; }
-        .lang-divider { opacity: 0.2; color: var(--sacramento); }
-
         /* Floating CTA */
         .floating-pass-cta {
             position: fixed;
@@ -803,10 +784,10 @@
 
     <header class="top-nav">
         <div class="nav-links">
-            <a href="#program">Program &amp; Billetter</a>
-            <a href="#artists">Kunstnere</a>
-            <a href="#about">Om</a>
-            <a href="#venue">Sted</a>
+            <a href="#program">Program &amp; Tickets</a>
+            <a href="#artists">Artists</a>
+            <a href="#about">About</a>
+            <a href="#venue">Venue</a>
         </div>
         <div class="nav-center">
             <a href="#">
@@ -815,12 +796,12 @@
             </a>
         </div>
         <div class="nav-right">
-            <div class="lang-selector">
-                <a href="/" class="lang-link lang-active">DK</a>
-                <span class="lang-divider">|</span>
-                <a href="/index-en.html" class="lang-link">EN</a>
+            <div style="display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.08em;">
+                <a href="/" style="text-decoration:none;color:var(--sacramento);opacity:0.35;">DK</a>
+                <span style="opacity:0.2;color:var(--sacramento);">|</span>
+                <a href="/index-en.html" style="text-decoration:none;color:var(--sacramento);opacity:1;">EN</a>
             </div>
-            <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-free btn-nav-cta" style="background-color: var(--burnt-orange); border: 1px solid var(--burnt-orange); padding: 8px 16px; border-radius: 2px; text-decoration: none; color: var(--chiffon); font-size: 11px; text-transform: uppercase; font-weight: 600;">Køb Billetter</a>
+            <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-free btn-nav-cta" style="background-color: var(--burnt-orange); border: 1px solid var(--burnt-orange); padding: 8px 16px; border-radius: 2px; text-decoration: none; color: var(--chiffon); font-size: 11px; text-transform: uppercase; font-weight: 600;">Buy Tickets</a>
             <div class="burger-menu" id="burgerToggle">
                 <span></span>
                 <span></span>
@@ -830,14 +811,14 @@
     </header>
 
     <div class="mobile-nav-overlay" id="mobileNav">
-        <a href="#program">Program &amp; Billetter</a>
-        <a href="#artists">Kunstnere</a>
-        <a href="#about">Om</a>
-        <a href="#venue">Sted</a>
+        <a href="#program">Program &amp; Tickets</a>
+        <a href="#artists">Artists</a>
+        <a href="#about">About</a>
+        <a href="#venue">Venue</a>
     </div>
 
     <a href="https://billetto.dk/users/across-festival" target="_blank" class="floating-pass-cta" id="floatingPass">
-        <span>Køb Billetter</span>
+        <span>Buy Tickets</span>
     </a>
 
     <main>
@@ -847,46 +828,46 @@
             </video>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700; margin-bottom: 15px;">Udgave 2026 — København</div>
+                <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 700; margin-bottom: 15px;">Edition 2026 — Copenhagen</div>
                 <h1>ACROSS<br>Festival</h1>
-                <div class="hero-desc">12. &amp; 13. september @ LiteraturHaus / Nørrebro, København</div>
-                <div class="hero-desc" style="font-size: 16px; opacity: 0.7;">En klassisk musikfestival for alle nysgerrige lyttere – uanset om du er ny til klassisk musik eller allerede kender den godt.</div>
+                <div class="hero-desc">September 12 & 13 @ LiteraturHaus / Nørrebro, Copenhagen</div>
+                <div class="hero-desc" style="font-size: 16px; opacity: 0.7;">A classical music festival for all curious listeners, whether you are new to classical music or already know it well.</div>
                 <div style="display: flex; gap: 20px; align-items: center; margin-top: 20px;">
-                    <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-pass">Køb Billetter</a>
-                    <a href="#program" style="text-decoration: none; color: var(--chiffon); font-size: 12px; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid var(--chiffon);">Udforsk Program</a>
+                    <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-pass">Buy Tickets</a>
+                    <a href="#program" style="text-decoration: none; color: var(--chiffon); font-size: 12px; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid var(--chiffon);">Explore Program</a>
                 </div>
             </div>
         </section>
 
         <section class="artists-section" id="artists">
             <div class="artists-header">
-                <h2 style="font-size: 80px; line-height: 0.9;">Kunst&shy;nerne</h2>
+                <h2 style="font-size: 80px; line-height: 0.9;">The<br>Artists</h2>
             </div>
             <div class="artist-grid">
                 <div class="artist-card">
                     <img src="/images/ARTISTS novo.jpg" alt="NOVO Quartet">
                     <h3>NOVO Quartet</h3>
-                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Grundlagt i 2018, spiller NOVO Quartet 100+ koncerter om året på internationale spillesteder og i opsøgende sammenhænge. BBC New Generation Artists 2025–27, vindere i Genève, Heidelberg, Carl Nielsen &amp; Trondheim – deres debut-album fik 5 stjerner i Politiken og Editor's Choice i Gramophone.</p>
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Founded in 2018, NOVO Quartet plays 100+ concerts a year across world-class venues and remote outreach destinations alike. BBC New Generation Artists 2025–27, winners at Geneva, Heidelberg, Carl Nielsen & Trondheim — their debut album earned 5 stars in Politiken and Editor's Choice in Gramophone.</p>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                        <a href="/artists.html#novo" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Fuld Biografi →</a>
+                        <a href="/artists.html#novo" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Full Bio →</a>
                         <a href="https://www.novoquartet.com" target="_blank" style="color: var(--pine); text-decoration: none; font-size: 11px; opacity: 0.6;">www.novoquartet.com</a>
                     </div>
                 </div>
                 <div class="artist-card">
                     <img src="/images/ARTISTS paddington 2.webp" alt="Paddington Trio">
                     <h3>Paddington Trio</h3>
-                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Hyldet som "tre virtuose musikere der spiller som én" (The Guardian), mødtes Tuulia Hero, Patrick Moriarty og Stephanie Tang på Londons Paddington Station. Første præmie ved Royal Over-Seas League Competition og Parkhouse Award. Deres debut-album 'Freakshow' udkommer på PENTATONE i 2027.</p>
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Critically acclaimed as "three virtuosic musicians who play as one" (The Guardian), Tuulia Hero, Patrick Moriarty, and Stephanie Tang met at London's Paddington Station. First Prize at the Royal Over-Seas League Competition and Parkhouse Award. Their debut album 'Freakshow' arrives on PENTATONE in 2027.</p>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                        <a href="/artists.html#paddington" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Fuld Biografi →</a>
+                        <a href="/artists.html#paddington" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Full Bio →</a>
                         <a href="https://www.paddingtontrio.com" target="_blank" style="color: var(--pine); text-decoration: none; font-size: 11px; opacity: 0.6;">www.paddingtontrio.com</a>
                     </div>
                 </div>
                 <div class="artist-card">
                     <img src="/images/ARTISTS simply.jpg" alt="Simply Quartet">
                     <h3>Simply Quartet</h3>
-                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Fire førstepræmier ved store konkurrencer, herunder Carl Nielsen og Quatuor à Bordeaux. ECHO Rising Stars-alumner, Simply Quartet er faste gæster på Wigmore Hall, Elbphilharmonie og Concertgebouw Amsterdam. Deres debut-album på Genuin (2025) blev hyldet som "åndeløst præcist" af SWR Kultur.</p>
+                    <p style="font-size: 15px; line-height: 1.6; margin-bottom: 16px; opacity: 0.85;">Four first prizes at major competitions including Carl Nielsen and Quatuor à Bordeaux. ECHO Rising Stars alumni, Simply Quartet are regulars at Wigmore Hall, the Elbphilharmonie, and Concertgebouw Amsterdam. Their debut album on Genuin (2025) was hailed as "breathtakingly precise" by SWR Kultur.</p>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
-                        <a href="/artists.html#simply" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Fuld Biografi →</a>
+                        <a href="/artists.html#simply" style="color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; border-bottom: 1px solid var(--pine);">Full Bio →</a>
                         <a href="https://www.simplyquartet.com" target="_blank" style="color: var(--pine); text-decoration: none; font-size: 11px; opacity: 0.6;">www.simplyquartet.com</a>
                     </div>
                 </div>
@@ -896,8 +877,8 @@
                 <img class="artist-guest-photo" src="/images/ARTISTS anders malta.jpg" alt="Anders Malta">
                 <div class="artist-guest-info">
                     <span class="artist-guest-name">Anders Malta</span>
-                    <span class="artist-guest-instrument">Trompet</span>
-                    <span class="artist-guest-desc">Slutter sig til søndag d. 13. sep. kl. 14:00 til en eftermiddag med jazz med kolleger, og som komponisten bag <em>Affaldssortering / Waste Sorting</em>.</span>
+                    <span class="artist-guest-instrument">Trumpet</span>
+                    <span class="artist-guest-desc">Joins on Sunday, Sep 13 at 14:00 for an afternoon of jazz with colleagues, and as the composer of <em>Affaldssortering / Waste Sorting</em>.</span>
                 </div>
             </div>
         </section>
@@ -907,31 +888,31 @@
         </section>
 
         <section class="section-header" id="program">
-            <h2>Program<br>og Billetter</h2>
+            <h2>Program<br>and Tickets</h2>
             <div class="festival-pass-prompt">
                 <div>
-                    <h3>Fuldt Festivalspas — Alle 4 Koncerter</h3>
-                    <p class="pass-prices">Standard &nbsp;·&nbsp; 400 DKK<br>Studerende / U30 &nbsp;·&nbsp; 200 DKK</p>
+                    <h3>Full Festival Pass — All 4 Concerts</h3>
+                    <p class="pass-prices">Standard &nbsp;·&nbsp; 400 DKK<br>Student / U30 &nbsp;·&nbsp; 200 DKK</p>
                 </div>
-                <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-pass">Køb Billetter</a>
+                <a href="https://billetto.dk/users/across-festival" target="_blank" class="btn-pass">Buy Tickets</a>
             </div>
         </section>
 
         <section class="program-list">
             <div class="program-row concert-night">
                 <div>
-                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Lørdag</div>
-                    <div style="font-size: 12px; opacity: 0.7;">12. sep. 2026</div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Saturday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 12, 2026</div>
                     <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">19:00</div>
                 </div>
                 <div>
                     <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">Didn't come ACROSS</div>
-                    <p style="font-size: 16px; font-weight: 500;">Engang afviste mesterværker, der er blevet hjørnesten i repertoiret</p>
+                    <p style="font-size: 16px; font-weight: 500;">Once-rejected masterpieces that have become cornerstones of the repertoire</p>
                     <div class="program-full">
                         <ul>
                             <li>Priaulx Rainier: Quartet for Strings</li>
                             <li>L. v. Beethoven: Piano Trio in C minor, Op. 1 No. 3</li>
-                            <li style="text-align:center; opacity:0.4; border-bottom:none; padding:12px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.2em; font-weight:600;">Pause</li>
+                            <li style="text-align:center; opacity:0.4; border-bottom:none; padding:12px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.2em; font-weight:600;">Intermission</li>
                             <li>Nancy Dalberg: String Quartet No. 1, 3rd movement</li>
                             <li>C. Debussy: String Quartet</li>
                         </ul>
@@ -940,20 +921,20 @@
                 <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
                 <div class="ticket-col" style="display: flex; justify-content: flex-end;">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <a href="https://billetto.dk/e/1894570" target="_blank" class="btn-ticket-trigger">Køb Billet</a>
-                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Studerende / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
+                        <a href="https://billetto.dk/e/1894570" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
                     </div>
                 </div>
             </div>
             <div class="program-row concert-didnt-come">
                 <div>
-                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Lørdag</div>
-                    <div style="font-size: 12px; opacity: 0.7;">12. sep. 2026</div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Saturday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 12, 2026</div>
                     <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">21:30</div>
                 </div>
                 <div>
                     <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">ACROSS the Night</div>
-                    <p style="font-size: 16px; font-weight: 500;">Et hypnotisk natprogram formet af ro, gentagelse og inddybbende lys.</p>
+                    <p style="font-size: 16px; font-weight: 500;">A hypnotic late-night program shaped by calm, repetition, and immersive light.</p>
                     <div class="program-full">
                         <ul>
                             <li>C. Debussy: Clair de Lune</li>
@@ -968,20 +949,20 @@
                 <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
                 <div class="ticket-col" style="display: flex; justify-content: flex-end;">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <a href="https://billetto.dk/e/1894571" target="_blank" class="btn-ticket-trigger">Køb Billet</a>
-                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Studerende / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
+                        <a href="https://billetto.dk/e/1894571" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
                     </div>
                 </div>
             </div>
             <div class="program-row concert-finale">
                 <div>
-                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Søndag</div>
-                    <div style="font-size: 12px; opacity: 0.7;">13. sep. 2026</div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Sunday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 13, 2026</div>
                     <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">14:00</div>
                 </div>
                 <div>
                     <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">A CROSS over</div>
-                    <p style="font-size: 16px; font-weight: 500;">En energisk fusion af jazz og klassisk musik.</p>
+                    <p style="font-size: 16px; font-weight: 500;">An energetic fusion of jazz and classical music.</p>
                     <div class="program-full">
                         <ul>
                             <li>Anders Malta solo + jazz colleagues</li>
@@ -994,25 +975,25 @@
                 <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
                 <div class="ticket-col" style="display: flex; justify-content: flex-end;">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <a href="https://billetto.dk/e/1894604" target="_blank" class="btn-ticket-trigger">Køb Billet</a>
-                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Studerende / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
+                        <a href="https://billetto.dk/e/1894604" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
                     </div>
                 </div>
             </div>
             <div class="program-row concert-cross" style="border-bottom: none;">
                 <div>
-                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Søndag</div>
-                    <div style="font-size: 12px; opacity: 0.7;">13. sep. 2026</div>
+                    <div style="font-size: 14px; font-weight: 700; text-transform: uppercase;">Sunday</div>
+                    <div style="font-size: 12px; opacity: 0.7;">Sep 13, 2026</div>
                     <div style="font-size: 20px; font-weight: 700; color: var(--burnt-orange); margin-top: 10px;">17:00</div>
                 </div>
                 <div>
                     <div style="font-size: 42px; font-weight: 700; line-height: 1; margin-bottom: 20px;">Across across across…</div>
-                    <p style="font-size: 16px; font-weight: 500;">En livlig finale — festivalens smeltedigel!</p>
+                    <p style="font-size: 16px; font-weight: 500;">A vibrant finale — the festival's melting pot!</p>
                     <div class="program-full">
                         <ul>
                             <li>J. Pachelbel: Canon</li>
                             <li>R. Schumann: Piano Quartet</li>
-                            <li style="text-align:center; opacity:0.4; border-bottom:none; padding:12px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.2em; font-weight:600;">Pause</li>
+                            <li style="text-align:center; opacity:0.4; border-bottom:none; padding:12px 0; font-size:11px; text-transform:uppercase; letter-spacing:0.2em; font-weight:600;">Intermission</li>
                             <li>G. Enescu: String Octet</li>
                         </ul>
                     </div>
@@ -1020,8 +1001,8 @@
                 <div style="font-size: 14px; font-weight: 700; text-transform: uppercase; opacity: 0.8;">LiteraturHaus</div>
                 <div class="ticket-col" style="display: flex; justify-content: flex-end;">
                     <div style="display: flex; flex-direction: column; align-items: flex-start;">
-                        <a href="https://billetto.dk/e/1894605" target="_blank" class="btn-ticket-trigger">Køb Billet</a>
-                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Studerende / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
+                        <a href="https://billetto.dk/e/1894605" target="_blank" class="btn-ticket-trigger">Get Tickets</a>
+                        <div style="margin-top: 10px; font-size: 11px; opacity: 0.6; line-height: 1.9;">Standard · 130 DKK<br>Student / U30 · 65 DKK<br>K7 / U25 · 40 DKK</div>
                     </div>
                 </div>
             </div>
@@ -1034,15 +1015,15 @@
         <section class="about-section" id="about">
             <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; align-items: start;">
                 <div>
-                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; color: var(--burnt-orange); margin-bottom: 16px;">Om Festivalen</div>
-                    <h2 style="font-size: 56px; line-height: 0.9; margin-bottom: 30px;">En festival for<br>alle nys&shy;gerrige<br>lyttere</h2>
-                    <p style="font-size: 18px; line-height: 1.7; margin-bottom: 36px; opacity: 0.85;">En klassisk musikfestival i det charmerende LiteraturHaus i Nørrebro. Baren holder åbent, stemningen er uformel, og musikerne er lige foran dig – hvad enten du er ny til klassisk musik eller har elsket den i årevis.</p>
-                    <a href="/about.html" style="display: inline-block; color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid var(--pine); padding-bottom: 3px;">Læs hele historien →</a>
+                    <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; color: var(--burnt-orange); margin-bottom: 16px;">About the Festival</div>
+                    <h2 style="font-size: 56px; line-height: 0.9; margin-bottom: 30px;">A festival for<br>all curious<br>listeners</h2>
+                    <p style="font-size: 18px; line-height: 1.7; margin-bottom: 36px; opacity: 0.85;">A classical music festival set in the charming LiteraturHaus in Nørrebro. The bar stays open, the atmosphere is informal, and the musicians are right there in front of you — whether you're new to classical music or have loved it for years.</p>
+                    <a href="/about.html" style="display: inline-block; color: var(--pine); text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid var(--pine); padding-bottom: 3px;">Read the full story →</a>
                 </div>
                 <div>
                     <div style="background-color: var(--pine); color: var(--chiffon); padding: 50px; border-radius: 4px;">
-                        <h3 style="font-size: 28px; margin-bottom: 16px;">2026-udgaven</h3>
-                        <p style="font-size: 14px; line-height: 1.7; opacity: 0.85;">Et møde mellem NOVO Quartet, Paddington Trio og Simply Quartet – tre af Europas mest spændende unge ensembler, der deler scenen over fire koncerter.</p>
+                        <h3 style="font-size: 28px; margin-bottom: 16px;">The 2026 Edition</h3>
+                        <p style="font-size: 14px; line-height: 1.7; opacity: 0.85;">A meeting between NOVO Quartet, Paddington Trio, and Simply Quartet — three of Europe's most exciting young ensembles sharing the stage across four concerts.</p>
                     </div>
                 </div>
             </div>
@@ -1050,7 +1031,7 @@
 
         <section class="moments-section">
             <div style="padding: 0 80px; margin-bottom: 40px;">
-                <h2 style="font-size: 64px;">Festival&shy;<br>øjeblikke</h2>
+                <h2 style="font-size: 64px;">Festival<br>Moments</h2>
             </div>
             <div class="moments-grid">
                 <img src="/images/MXH20591.jpg" alt="Vibe">
@@ -1078,15 +1059,15 @@
         <section class="venue-section" id="venue">
             <div class="venue-row-info">
                 <div class="venue-text">
-                    <div class="collection-label" style="opacity: 0.5; margin-bottom: 10px;">Sted</div>
+                    <div class="collection-label" style="opacity: 0.5; margin-bottom: 10px;">Venue</div>
                     <h2>LiteraturHaus<br>Copenhagen</h2>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
                         <div>
-                            <h4 style="font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.5; color: var(--gold);">Adresse</h4>
+                            <h4 style="font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.5; color: var(--gold);">Address</h4>
                             <p style="font-size: 16px; line-height: 1.4;">Møllegade 7<br>2200 København N</p>
                         </div>
                         <div>
-                            <h4 style="font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.5; color: var(--gold);">Kontakt</h4>
+                            <h4 style="font-size: 11px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.5; color: var(--gold);">Contact</h4>
                             <a href="mailto:hello@acrossfestival.com" style="color: var(--chiffon); text-decoration: none; font-size: 16px;">hello@acrossfestival.com</a>
                             <div style="display: flex; gap: 15px; margin-top: 15px;">
                                 <a href="https://www.instagram.com/across.festival/" target="_blank" style="color: inherit;"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
@@ -1105,7 +1086,7 @@
         </section>
 
         <section class="sponsors-section" id="sponsors">
-            <div style="text-align: center; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--sacramento); opacity: 0.5; margin-bottom: 50px;">Støttet af</div>
+            <div style="text-align: center; font-size: 14px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--sacramento); opacity: 0.5; margin-bottom: 50px;">Supported by</div>
             <div class="sponsors-carousel-wrapper">
                 <div class="sponsors-carousel">
                     <!-- Duplicated for loop -->
@@ -1141,15 +1122,15 @@
         </section>
 
         <section class="photo-box-section">
-            <h2>Tidligere udgaver</h2>
+            <h2>Previous Editions</h2>
             <div class="photo-box-grid">
                 <div class="photo-item">
                     <img src="/images/066_MXH24382.jpg" alt="Season 1">
-                    <div class="photo-overlay">Sæson 1 — 2024</div>
+                    <div class="photo-overlay">Season 1 — 2024</div>
                 </div>
                 <div class="photo-item">
                     <img src="/images/MHXS5122.jpg" alt="Season 2">
-                    <div class="photo-overlay">Sæson 2 — 2025</div>
+                    <div class="photo-overlay">Season 2 — 2025</div>
                 </div>
             </div>
         </section>
@@ -1157,12 +1138,12 @@
 
     <footer>
         <div style="font-family: 'Rundeck', serif; font-size: 28px; margin-bottom: 20px; color: var(--sacramento);">ACROSS Festival</div>
-        <div style="font-size: 14px; color: var(--sacramento); opacity: 0.6;">Sted: LiteraturHaus · Møllegade 7 · 2200 København</div>
+        <div style="font-size: 14px; color: var(--sacramento); opacity: 0.6;">Venue: LiteraturHaus · Møllegade 7 · 2200 Copenhagen</div>
         <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
             <a href="https://www.instagram.com/across.festival/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
             <a href="https://www.facebook.com/across.chambermusic/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
         </div>
-        <p style="font-size: 10px; margin-top: 30px; color: var(--sacramento); opacity: 0.4;">© 2026 ACROSS FESTIVAL. ALLE RETTIGHEDER FORBEHOLDES.</p>
+        <p style="font-size: 10px; margin-top: 30px; color: var(--sacramento); opacity: 0.4;">© 2026 ACROSS FESTIVAL. ALL RIGHTS RESERVED.</p>
         <p style="font-size: 10px; margin-top: 6px; color: var(--sacramento); opacity: 0.25;">v1.2</p>
     </footer>
 

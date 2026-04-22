@@ -1160,7 +1160,9 @@
 
         window.addEventListener('scroll', () => {
             const floatingPass = document.getElementById('floatingPass');
-            if (window.scrollY > 500) {
+            const footer = document.querySelector('footer');
+            const footerTop = footer.getBoundingClientRect().top;
+            if (window.scrollY > 500 && footerTop > window.innerHeight) {
                 floatingPass.classList.add('show');
             } else {
                 floatingPass.classList.remove('show');

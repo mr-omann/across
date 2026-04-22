@@ -24,3 +24,8 @@ The header font was originally the browser default serif before being replaced w
 
 ## To make changes
 Edit files locally, commit, push to `main` — Cloudflare Pages deploys automatically within ~60 seconds.
+
+## Versioning — REQUIRED on every push to main
+The footer in **both `index.html` and `about.html`** contains a version number (`v1.1`, `v1.2`, etc.).
+**Before every commit that will be pushed to `main`, increment the version by 0.1 in both files.**
+Search for `v1.` in both files to find the lines. Never skip this step.

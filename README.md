@@ -8,5 +8,10 @@ Then open **http://localhost:8080**
 
 Stop with `Ctrl+C`.
 
-## Versioning
-Every push to `main` must bump the version number by 0.1 in the footer of **both `index.html` and `about.html`** (search for `v1.`). Started at v1.1.
+## ⚠️ Versioning — mandatory on every push to main
+Before **every** push to `main` (including branch merges), bump the version by 0.1 in the footer of all three pages:
+- `index.html`
+- `about.html`
+- `artists.html`
+
+Search for `v1.` in each file to find the line. All three must match. Never skip this.

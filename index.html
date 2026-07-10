@@ -565,25 +565,38 @@
 
         .sponsors-carousel-wrapper {
             width: 100%;
-            overflow: hidden;
-            padding: 40px 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 40px 0 24px;
+            cursor: grab;
+            user-select: none;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(22, 33, 20, 0.3) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .sponsors-carousel-wrapper.dragging {
+            cursor: grabbing;
+        }
+
+        .sponsors-carousel-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .sponsors-carousel-wrapper::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sponsors-carousel-wrapper::-webkit-scrollbar-thumb {
+            background: rgba(22, 33, 20, 0.3);
+            border-radius: 3px;
         }
 
         .sponsors-carousel {
             display: flex;
             gap: 80px;
-            animation: scroll-sponsors 40s linear infinite;
             width: max-content;
             align-items: center;
-        }
-
-        .sponsors-carousel:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll-sponsors {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
 
         .sponsor-container {
@@ -1176,7 +1189,7 @@
             <a href="https://www.facebook.com/across.chambermusic/" target="_blank" style="color: var(--sacramento);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
         </div>
         <p style="font-size: 10px; margin-top: 30px; color: var(--sacramento); opacity: 0.4;">© 2026 ACROSS FESTIVAL. ALLE RETTIGHEDER FORBEHOLDES.</p>
-        <p style="font-size: 10px; margin-top: 6px; color: var(--sacramento); opacity: 0.25;">v1.6</p>
+        <p style="font-size: 10px; margin-top: 6px; color: var(--sacramento); opacity: 0.25;">v1.7</p>
     </footer>
 
     <script>
@@ -1205,6 +1218,62 @@
                 floatingPass.classList.remove('show');
             }
         });
+
+        // Sponsor marquee: gentle auto-advance + manual trackpad/drag scrolling, seamless loop.
+        // The two identical logo copies inside .sponsors-carousel must stay balanced for the wrap to be seamless.
+        const marquee = document.querySelector('.sponsors-carousel-wrapper');
+        const marqueeTrack = marquee?.querySelector('.sponsors-carousel');
+        if (marquee && marqueeTrack) {
+            const SECONDS_PER_COPY = 28;            // was a 40s CSS loop — a touch faster now
+            let loopWidth = 0, paused = false, dragging = false, dragStartX = 0, dragStartScroll = 0;
+
+            // One copy's width = offset from the first logo to its duplicate. Gap-proof, so no jerky reset.
+            const measure = () => {
+                const items = marqueeTrack.children;
+                loopWidth = items[items.length / 2].offsetLeft - items[0].offsetLeft;
+            };
+            measure();
+            window.addEventListener('load', measure);
+            window.addEventListener('resize', measure);
+
+            // Pause the drift while hovering so tooltips are readable and trackpad scrolling takes over
+            marquee.addEventListener('mouseenter', () => { paused = true; });
+            marquee.addEventListener('mouseleave', () => { if (!dragging) paused = false; });
+
+            // Click-and-drag with a mouse; touch and trackpad use native scrolling
+            marquee.addEventListener('pointerdown', (e) => {
+                paused = true;
+                if (e.pointerType !== 'mouse') return;
+                e.preventDefault();
+                dragging = true;
+                dragStartX = e.pageX;
+                dragStartScroll = marquee.scrollLeft;
+                marquee.classList.add('dragging');
+                marquee.setPointerCapture(e.pointerId);
+            });
+            marquee.addEventListener('pointermove', (e) => {
+                if (dragging) marquee.scrollLeft = dragStartScroll - (e.pageX - dragStartX);
+            });
+            const endDrag = () => {
+                if (dragging) { dragging = false; marquee.classList.remove('dragging'); }
+                paused = marquee.matches(':hover');
+            };
+            marquee.addEventListener('pointerup', endDrag);
+            marquee.addEventListener('pointercancel', endDrag);
+
+            // Framerate-independent auto-advance with a seamless wrap at exactly one copy width
+            let lastFrame = performance.now();
+            const stepMarquee = (now) => {
+                const dt = now - lastFrame;
+                lastFrame = now;
+                if (!paused && !dragging && loopWidth > 0) {
+                    marquee.scrollLeft += loopWidth * dt / (SECONDS_PER_COPY * 1000);
+                    if (marquee.scrollLeft >= loopWidth) marquee.scrollLeft -= loopWidth;
+                }
+                requestAnimationFrame(stepMarquee);
+            };
+            requestAnimationFrame(stepMarquee);
+        }
     </script>
 </body>
 </html>

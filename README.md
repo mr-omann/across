@@ -17,6 +17,6 @@ Before **every** push to `main` (including branch merges), bump the version by 0
 - The 2026 festival site is saved on the `festival-2026` branch.
 - Sign-up emails are stored in Cloudflare KV (binding `SUBSCRIBERS`). Export them:
   ```
-  npx wrangler kv key list --namespace-id <id> --remote > subscribers.json
+  npx wrangler kv key list --namespace-id 39412a350f5b4c17b451d6c900c576f8 --remote > subscribers.json
   ```
   Each entry has `name` (the email) and `metadata.signedUp`. Don't commit the export.

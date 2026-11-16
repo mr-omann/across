@@ -8,10 +8,15 @@ Then open **http://localhost:8080**
 
 Stop with `Ctrl+C`.
 
-## ⚠️ Versioning — mandatory on every push to main
-Before **every** push to `main` (including branch merges), bump the version by 0.1 in the footer of all three pages:
-- `index.html`
-- `about.html`
-- `artists.html`
+The `/api/subscribe` function doesn't run under `python3 -m http.server`. To test it locally use `npx wrangler pages dev .`
 
-Search for `v1.` in each file to find the line. All three must match. Never skip this.
+## ⚠️ Versioning — mandatory on every push to main
+Before **every** push to `main` (including branch merges), bump the version by 0.1 in the footer of every page. During the inter-season that is only `index.html` (search for `class="ver"`). Never skip this.
+
+## Inter-season
+- The 2026 festival site is saved on the `festival-2026` branch.
+- Sign-up emails are stored in Cloudflare KV (binding `SUBSCRIBERS`). Export them:
+  ```
+  npx wrangler kv key list --namespace-id <id> --remote > subscribers.json
+  ```
+  Each entry has `name` (the email) and `metadata.signedUp`. Don't commit the export.

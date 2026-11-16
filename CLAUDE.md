@@ -8,11 +8,17 @@ Static HTML site for the Across Festival (acrossfestival.com).
 - **Domain:** `acrossfestival.com` — DNS managed by Cloudflare (nameservers: ignacio/shubhi.ns.cloudflare.com)
 - **Pages URL:** https://across-d4e.pages.dev
 
+## Current mode: inter-season (since Nov 2026)
+Between festivals, `main` serves a single page: `index.html` (English, "Sticky Year" timeline of all seasons + email sign-up).
+- **2026 festival site is archived on the `festival-2026` branch** (DA/EN index, about, artists pages, last version DA v2.4 / EN v2.1). Next year: branch from it, update content, merge to `main`, delete `_redirects` and `images/interseason/` if unused.
+- `_redirects` sends the old page URLs to `/` with 302s (not 301, so browsers don't cache them past next year).
+- `functions/api/subscribe.js` — Cloudflare Pages Function that stores sign-up emails in the KV namespace bound as `SUBSCRIBERS` (key = email, metadata = sign-up time). It never sends mail. Export the list with `npx wrangler kv key list --namespace-id <id> --remote` (id in `wrangler.toml` once bound). Returns 503 if the binding is missing.
+
 ## Structure
 Pure static HTML — no build step, no framework. Files are served directly from the repo root.
-- `index.html` — homepage
-- `about.html` — about page
-- `artists.html` — artists page
+- `index.html` — the only page during the inter-season
+- `functions/` — Cloudflare Pages Functions (`/api/subscribe`)
+- `images/interseason/` — web-sized photos used by the inter-season page
 - `images/` — all photos and logos
 - `videos/` — hero video and other video assets
 - `Rundeck.otf/.ttf` — custom festival typeface
@@ -29,10 +35,8 @@ Edit files locally, commit, push to `main` — Cloudflare Pages deploys automati
 
 **This step is not optional. Do not push to `main` without doing this first.**
 
-Every push to `main` — no exceptions, including merges from feature branches — must bump the version number by 0.1 in the footer of ALL three pages:
+Every push to `main` — no exceptions, including merges from feature branches — must bump the version number by 0.1 in the footer of every HTML page on `main`.
 
-- `index.html` — search for `v1.` and increment
-- `about.html` — search for `v1.` and increment
-- `artists.html` — search for `v1.` and increment
+During the inter-season that is only `index.html` — search for `class="ver"` and increment (v2.5 → v2.6, etc.). When the festival pages come back, every page's footer must show the same version number.
 
-The version appears as a faint `<p>` tag just below the copyright line in each footer. Increment by 0.1 (v1.2 → v1.3 → v1.4, etc.). All three files must show the same version number.
+The version appears as a faint `<p>` tag just below the copyright line in each footer.

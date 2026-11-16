@@ -1,0 +1,12 @@
+# Inter-season: the 2026 festival pages live on the festival-2026 branch.
+# 302 (not 301) so browsers don't cache these when the pages come back next year.
+/index-en.html  /           302
+/index-en       /           302
+/about.html     /#about     302
+/about          /#about     302
+/about-en.html  /#about     302
+/about-en       /#about     302
+/artists.html   /#seasons   302
+/artists        /#seasons   302
+/artists-en.html /#seasons  302
+/artists-en     /#seasons   302

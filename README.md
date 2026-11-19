@@ -1,5 +1,7 @@
 # Across Festival — Local Dev
 
+**Coming back to this next year? Read [NEXT-YEAR.md](NEXT-YEAR.md) first.**
+
 ```
 cd /Users/otto/Documents/GitHub/ottomator/projects_ottomator/across && python3 -m http.server 8080
 ```

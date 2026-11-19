@@ -9,6 +9,8 @@ Static HTML site for the Across Festival (acrossfestival.com).
 - **Pages URL:** https://across-d4e.pages.dev
 
 ## Current mode: inter-season (since Nov 2026)
+**Next-year runbook: `NEXT-YEAR.md`** (export the email list, bring back the festival site, return to inter-season). Keep it up to date when anything below changes.
+
 Between festivals, `main` serves a single page: `index.html` (English, "Sticky Year" timeline of all seasons + email sign-up).
 - **2026 festival site is archived on the `festival-2026` branch** (DA/EN index, about, artists pages, last version DA v2.4 / EN v2.1). Next year: branch from it, update content, merge to `main`, delete `_redirects` and `images/interseason/` if unused.
 - `_redirects` sends the old page URLs to `/` with 302s (not 301, so browsers don't cache them past next year).

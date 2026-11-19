@@ -39,6 +39,6 @@ Edit files locally, commit, push to `main` — Cloudflare Pages deploys automati
 
 Every push to `main` — no exceptions, including merges from feature branches — must bump the version number by 0.1 in the footer of every HTML page on `main`.
 
-During the inter-season that is only `index.html` — search for `class="ver"` and increment (v2.8 → v2.9, etc.). When the festival pages come back, every page's footer must show the same version number.
+During the inter-season that is only `index.html` — search for `class="ver"` and increment (v2.9 → v3.0, etc.). When the festival pages come back, every page's footer must show the same version number.
 
 The version appears as a faint `<p>` tag just below the copyright line in each footer.

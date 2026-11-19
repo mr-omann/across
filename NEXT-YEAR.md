@@ -26,7 +26,7 @@ If you're using Claude Code or opencode, you can open this repo and say "follow 
 | Sign-up code | `functions/api/subscribe.js`. Runs at `/api/subscribe` |
 | Old page links | `_redirects` sends `/about.html`, `/artists.html` and the `-en` pages to the matching section of the homepage |
 
-**Version rule:** every push to `main` must bump the little version number in the footer by 0.1 (search `index.html` for `class="ver"`). It was **v2.8** when this was written. See `CLAUDE.md`.
+**Version rule:** every push to `main` must bump the little version number in the footer by 0.1 (search `index.html` for `class="ver"`). It was **v2.9** when this was written. See `CLAUDE.md`.
 
 ---
 
@@ -97,7 +97,7 @@ Then:
 
 1. **Update the content** in all six pages: `index.html` (Danish), `index-en.html`, `about.html`, `about-en.html`, `artists.html`, `artists-en.html`. Change the dates, artists, bios, photos, programs, ticket links and prices. Search for `2026` to find most places.
 2. **Decide about the email box.** The festival pages don't have one. Leave `functions/` in the repo either way, because it does no harm.
-3. **Set the version.** The festival pages use their own version numbers (Danish v2.4 / English v2.1 at the end of 2026), while the inter-season page reached v2.8+. Pick the next number above all of them and use it on **every page**.
+3. **Set the version.** The festival pages use their own version numbers (Danish v2.4 / English v2.1 at the end of 2026), while the inter-season page reached v2.9+. Pick the next number above all of them and use it on **every page**.
 4. **Preview before going live.** Push the branch (`git push -u origin festival-2027`) and Cloudflare builds a preview at https://festival-2027.across-d4e.pages.dev. Note that the email box doesn't save on previews, on purpose (see Troubleshooting).
 5. **Check the inter-season page is saved** before it's replaced (you'll want it again in the autumn). The branch `interseason-2026` was made in November 2026. If anything on `main` changed since, refresh it:
    ```bash
@@ -141,6 +141,10 @@ Then:
    ```
 
 ---
+
+## Photo sources
+
+The guest-ensemble photos for 2024/2025 (`images/interseason/a-erinys.jpg`, `a-trioconcept.jpg`, `a-elmore.jpg`, `a-pantoum.jpg`) were taken from the ensembles' own websites (erinysquartet.com, trioconcept.it) and their WFIMC competition pages (wfimc.org) in November 2026. If an ensemble asks, swap in their official press photo or add a photo credit. The other photos are ACROSS's own festival photos and the 2026 artist press photos.
 
 ## Troubleshooting
 
